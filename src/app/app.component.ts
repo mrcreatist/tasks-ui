@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   lists: any;
 
   constructor(public dialog: MatDialog) {
-    this.socket = socketIO('ws://localhost:3333');
+    this.socket = socketIO('ws://0.0.0.0:3333');
     this.socket.on('fireInTheHole', (data: any) => this.lists = data);
   }
 
