@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Add item to {{data.type}}</h1>
+<div mat-dialog-content>
+    <p>Let's see the new task</p>
+    <mat-form-field>
+        <mat-label>Task Name</mat-label>
+        <input matInput #task>
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]>Cancel</button>
+    <button mat-button [mat-dialog-close]="task.value" cdkFocusInitial>Ok</button>
+</div>
