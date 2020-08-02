@@ -16,4 +16,11 @@ export class AddItemComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  closeDialog() {
+    this.dialogRef.close();
+  }
+
+  send(task: string) {
+    this.dialogRef.close(task);
+  }
 }

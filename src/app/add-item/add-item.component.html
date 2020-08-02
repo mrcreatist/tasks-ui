@@ -3,10 +3,10 @@
     <p>Let's see the new task</p>
     <mat-form-field>
         <mat-label>Task Name</mat-label>
-        <input matInput #task>
+        <input matInput #task (keydown.enter)="send(task.value)">
     </mat-form-field>
 </div>
 <div mat-dialog-actions>
-    <button mat-button [mat-dialog-close]>Cancel</button>
-    <button mat-button [mat-dialog-close]="task.value" cdkFocusInitial>Ok</button>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button [mat-dialog-close]="task.value" cdkFocusInitial>Add Task</button>
 </div>

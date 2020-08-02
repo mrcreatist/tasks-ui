@@ -16,7 +16,7 @@ export class AppComponent implements OnInit {
   lists: any;
 
   constructor(public dialog: MatDialog) {
-    this.socket = socketIO('ws://192.168.1.201:3333');
+    this.socket = socketIO('ws://localhost:3333');
     this.socket.on('fireInTheHole', (data: any) => this.lists = data);
   }
 
@@ -53,13 +53,13 @@ export class AppComponent implements OnInit {
     });
   }
 
-  markDone(type: string, itemTitle: string) {
+  markDone(type: string, itemTitle: string, status: boolean) {
     this.lists.forEach((x: any) => {
       if (x.name === type) {
         x.data.forEach((y: any, index: any) => {
           if (y.title === itemTitle) {
-            y.completed = true;
-            moveItemInArray(x.data, index, (x.data.length - 1));
+            y.completed = !status;
+            moveItemInArray(x.data, index, !status ? (x.data.length - 1) : 0);
             this.syncWithServer();
           }
         });
