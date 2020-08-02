@@ -3,6 +3,7 @@ import * as socketIO from 'socket.io-client';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 import { MatDialog } from '@angular/material/dialog';
 import { AddItemComponent } from './add-item/add-item.component';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,7 @@ export class AppComponent implements OnInit {
   lists: any;
 
   constructor(public dialog: MatDialog) {
-    this.socket = socketIO('ws://0.0.0.0:3333');
+    this.socket = socketIO(`ws://${environment.socket.URL}:${environment.socket.port}`);
     this.socket.on('fireInTheHole', (data: any) => this.lists = data);
   }
 
