@@ -37,6 +37,7 @@ export class AppComponent implements OnInit {
       let current = this.lists.indexOf(event.container.data);
       transferArrayItem(this.lists[previous].data, this.lists[current].data, event.previousIndex, event.currentIndex);
     }
+    this.syncWithServer();
   }
 
   addNew(type: string) {
