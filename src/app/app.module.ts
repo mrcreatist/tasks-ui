@@ -7,6 +7,8 @@ import { MaterialModule } from './module';
 import { AddItemComponent } from './component/add-item/add-item.component';
 import { components, providers } from './declaration';
 import { ItemComponent } from './component/item/item.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { ItemComponent } from './component/item/item.component';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [...providers],
   entryComponents: [AddItemComponent],
