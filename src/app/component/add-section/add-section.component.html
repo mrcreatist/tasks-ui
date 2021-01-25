@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>New Section</h1>
+<div mat-dialog-content>
+    <mat-form-field>
+        <mat-label>Section Name</mat-label>
+        <input matInput #section (keydown.enter)="send(section.value)" value="{{data?.name}}">
+    </mat-form-field>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button [mat-dialog-close]="section.value" cdkFocusInitial>{{data?.name ? 'Rename' : 'Add'}}</button>
+</div>

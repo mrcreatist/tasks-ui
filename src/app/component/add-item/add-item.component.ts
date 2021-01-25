@@ -1,5 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { ItemModel, TaskModel } from 'src/app/model';
+import { SocketService } from 'src/app/service';
 
 @Component({
   selector: 'app-add-item',
@@ -8,9 +10,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class AddItemComponent implements OnInit {
 
-  constructor(
+  constructor (
     public dialogRef: MatDialogRef<AddItemComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: ItemModel
   ) { }
 
   ngOnInit(): void {

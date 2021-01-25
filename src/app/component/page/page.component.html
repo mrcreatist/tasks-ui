@@ -1,0 +1,6 @@
+<div class="view" cdkDropListGroup>
+    <app-section *ngFor="let list of lists" [list]="list"></app-section>
+</div>
+<button mat-stroked-button color="primary" class="add_button" (click)="addNewSection()">
+    <mat-icon>add</mat-icon> Board
+</button>

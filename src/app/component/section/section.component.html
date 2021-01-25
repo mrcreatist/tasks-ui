@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="head">
+        <h2 style="text-transform: capitalize; margin: 1rem;">{{list.name}}</h2>
+        <button mat-button class="menu_btn" [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu" xPosition="before" style="display: none">
+            <button mat-menu-item (click)="onAction(ACTION.RENAME)">
+                <mat-icon>delete_outline</mat-icon>
+                {{ACTION.RENAME}}
+            </button>
+            <button mat-menu-item (click)="onAction(ACTION.DELETE)">
+                <mat-icon>delete_outline</mat-icon>
+                {{ACTION.DELETE}}
+            </button>
+        </mat-menu>
+    </div>
+    <div cdkDropList [cdkDropListData]="list" class="list" (cdkDropListDropped)="drop($event)">
+        <div class="box" *ngFor="let item of list.data" cdkDrag>
+            <div class="custom-placeholder" *cdkDragPlaceholder></div>
+            <app-item [item]="item"></app-item>
+        </div>
+    </div>
+    <button mat-stroked-button color="primary" class="add_button" (click)="addNewItem()">
+        <mat-icon>add</mat-icon> Task
+    </button>
+</div>
