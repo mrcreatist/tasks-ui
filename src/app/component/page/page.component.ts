@@ -19,7 +19,7 @@ export class PageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this._socket.list.subscribe((boards: Array<TaskModel>) => this.lists = boards);
+    this._socket.list.subscribe((boards: Array<TaskModel>) => (this.lists = boards, console.log(this.lists)));
   }
 
   getList() {

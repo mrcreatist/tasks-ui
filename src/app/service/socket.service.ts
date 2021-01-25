@@ -17,7 +17,8 @@ export class SocketService {
   list: Observable<TaskModel[]> = this.subject.asObservable();
 
   constructor () {
-    this.socket = socketIO(`${environment.socket.URL}:${environment.socket.port}`);
+    this.socket = socketIO(`${environment.socket.URL}`);
+    console.log('asd');
     this.socket.on('fireInTheHole', (data: Array<TaskModel>) => (this.lists = (data === null ? [] : data), this.subject.next(this.lists)));
   }
 
